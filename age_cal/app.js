@@ -13,7 +13,7 @@ let day = document.querySelector("#days");
         if(input.value.trim() == ''){
             alert("Please Enter valid Information");
         }
-        else if(dob > today || dob<5.9959e+13)
+        else if(dob > today)
         {
             alert("please Check your Detailes")
         }
