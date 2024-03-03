@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speak_Word</title>
+    <link rel="stylesheet" href="file.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div id="container">
+       
+        <div class="outer">
+            <h1 style="color: white;">Text To Speech</h1>
+            <p style="color: white;">You can Use this for difficult Words that which are way hard to pronounce<br> So let check this </p>
+            <div class="inner">
+                <div>
+                    <textarea name="" id="textarea" class="textarea" cols="30" rows="6"></textarea>
+                </div>
+                <div class="but-group">
+                <button id="speakBtn">Speak Text</button>
+                <button id="stopBtn">Stop Speaking</button>
+                <button id="clearBtn">Clear</button>
+            </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let speakBtn = document.querySelector('#speakBtn');
+        let stopBtn = document.querySelector('#stopBtn');
+        let textarea = document.querySelector('#textarea');
+        let clearBtn = document.querySelector('#clearBtn');
+        let utterance;
+        
+speakBtn.addEventListener('click',()=>{
+                let utterance = new SpeechSynthesisUtterance(textarea.value);
+                utterance.lang = 'hi-IN'; 
+                utterance.rate = 0.8; // Set the rate to 0.2 (adjust as needed)
+                speechSynthesis.speak(utterance);
+});
+                // Change background color of textare
+
+        stopBtn.addEventListener("click", () => {
+            speechSynthesis.cancel();
+        });
+        clearBtn.addEventListener("click", () => {
+            textarea.value = '';
+        });
+    </script>
+</body>
+</html>
